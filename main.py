@@ -4,9 +4,9 @@ import json
 
 # Function to fetch tech news
 def fetch_tech_trends():
-    url = "https://news.google.com/rss/search?q=technology+trends&hl=en-US&gl=US&ceid=US:en"
+    url = "https://rss.app/feeds/oYXl5P4dOYd24SeO.xml"  # Alternative RSS Feed
     feed = feedparser.parse(url)
-    
+
     articles = []
     for entry in feed.entries[:5]:  # Get top 5 articles
         articles.append({
@@ -14,8 +14,9 @@ def fetch_tech_trends():
             "summary": entry.summary[:180] + "...",
             "link": entry.link
         })
-    
+
     return articles
+
 
 # Streamlit API Mode
 st.set_page_config(layout="wide")
